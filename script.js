@@ -58,9 +58,8 @@ function switch2break()
 }
 
 function playaudio(){
-    alert("time is over");
-    // TODO: play an audio alert
     theSound.play();
+    alert("Time is over.");
 }
 
 function startTimer() {

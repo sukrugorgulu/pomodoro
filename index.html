@@ -3,47 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pomodoro Timer</title>
 <link rel = "stylesheet" type = "text/css" href = "style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Geo&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Pomodoro Clock</h1>
+<center><h1>Pomodoro Timer</h1></center>
 <div id="container">
-    <div>
-        <div>
-           <button id="select-session">Session</button>
+    <div class="subcontainer">
+        <div class="selectors">
+           <button class="item-a" id="select-session">Session</button>
            <br>
-           <button id="session-minutes-up">+</button>
-           <span id="session-minutes">25</span>
-           <button id="session-minutes-down">-</button>
+           <button class="item-b" id="session-minutes-up">+</button>
+           <span class="item-c" id="session-minutes">25</span>
+           <button class="item-d" id="session-minutes-down">-</button>
         </div>
-        <div>
-            <button id="select-break">Break</button>
+        <div class="selectors">
+            <button class="item-a" class="selector-title" id="select-break">Break</button>
             <br>
-            <button id="break-minutes-up">+</button>
-            <span id="break-minutes">5</span>
-            <button id="break-minutes-down">-</button>
+            <button class="item-b" id="break-minutes-up">+</button>
+            <span class="item-c" id="break-minutes">5</span>
+            <button class="item-d" id="break-minutes-down">-</button>
          </div>
     </div>
-    <div>
-        <div>
-           <button id="start">start</button>
-            <button id="reset">reset</button>
-         </div>
-         <div>
+    <div class="subcontainer" id="screen">
+        
+        <button id="start">start</button>
+        <button id="reset">reset</button>
+         
+         <div id="session-screen">
              <span id="session-type">Session</span>
              <br>
              <span id="remaining-time">25:00</span>
          </div>
-         <div>
-            <button id="pause">pause</button>
-             <button id="stop">stop</button>
-          </div>
+         
+        <button id="pause">pause</button>
+        <button id="stop">stop</button>
+          
           
     </div>
 
 
 </div>
+<p>By <a href="https://github.com/RiceFree">RiceFree</a> and <a href="https://github.com/sukrugorgulu">Sukru</a></p>
+
+<audio id="thesound" src="Store_Door_Chime-Mike_Koenig-570742973.mp3"></audio>
+
 <script src="script.js"></script>
 </body>
 </html>

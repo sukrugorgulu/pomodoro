@@ -1,5 +1,7 @@
 /*
 LIST OF BUTTONS:
+select-session
+select-break
 session-minutes-up
 session-minutes-down
 break-minutes-up
@@ -12,6 +14,7 @@ stop
 LIST OF CHANGING-TEXT
 session-minutes
 break-minutes
+session-type
 remaining-time
 */
 
@@ -24,6 +27,8 @@ let gBreakMinutes=gDefaultBreakMinutes;
 let gRemainingTime = gSessionMinutes*60;
 let timerRunning;
 let session = 1; // 1 is sessiontime, 0 is breaktime
+
+const theSound = document.querySelector('#thesound'); 
 
 const sessionMinutes = document.querySelector('#session-minutes');
 const breakMinutes = document.querySelector('#break-minutes');
@@ -53,12 +58,13 @@ function switch2break()
 }
 
 function playaudio(){
-    alert("time is over")
+    alert("time is over");
     // TODO: play an audio alert
+    theSound.play();
 }
 
 function startTimer() {
-timerRunning = setInterval(updateTimer,1000)
+timerRunning = setInterval(updateTimer,10)
 }
 
 function stopTimer() {
@@ -85,8 +91,10 @@ function updateTimer() {
     gRemainingTime--;
     if (gRemainingTime == 0){
         clearInterval(timerRunning);
+        time2string();
         playaudio();
-        session ? switch2break() : switch2session();
+        session == 1 ? switch2break() : switch2session();
+        startTimer();
     }
     time2string()
 }
@@ -108,7 +116,9 @@ const container = document.querySelector('#container');
 const sessionMinutesUp = document.querySelector('#session-minutes-up');
 sessionMinutesUp.addEventListener('click', (e)=> {
         gSessionMinutes += 1; // global var for number
+        gRemainingTime = gSessionMinutes * 60;
         sessionMinutes.textContent = gSessionMinutes; // handler object 
+        if (session == 1) time2string();
     })
 
 const sessionMinutesDown = document.querySelector('#session-minutes-down');
@@ -116,18 +126,24 @@ sessionMinutesDown.addEventListener('click', (e)=> {
     if(gSessionMinutes>1) gSessionMinutes -= 1;
     gRemainingTime = gSessionMinutes * 60;
     sessionMinutes.textContent = gSessionMinutes;
+    if (session == 1) time2string();
+
 })
 
 const breakMinutesUp = document.querySelector('#break-minutes-up');
 breakMinutesUp.addEventListener('click', (e)=> {
     gBreakMinutes += 1;
+    gRemainingTime = gBreakMinutes * 60;
     breakMinutes.textContent = gBreakMinutes;
+    if (session == 0) time2string();
 })
 
 const breakMinutesDown = document.querySelector('#break-minutes-down');
 breakMinutesDown.addEventListener('click', (e)=> {
     if(gBreakMinutes>1) gBreakMinutes -= 1;
+    gRemainingTime = gBreakMinutes * 60;
     breakMinutes.textContent = gBreakMinutes;
+    if (session ==0) time2string();
 })
 //Other buttons
 const start = document.querySelector('#start');

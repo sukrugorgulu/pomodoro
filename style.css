@@ -1,4 +1,123 @@
 /* TODO: style will be implemented soon. */
+:root{
+    font-family: Geo, sans-serif;
+} 
+h1 {
+    color: grey;
+    font-size: 50px;
+}
+body {
+    background-image: url('prism.png');
+}
+
 #container {
-    width: 50%;
+    width: 400px;
+    margin: 0 auto;
+    background-color:rgba(49, 48, 48,0.4);
+    display: grid;
+    row-gap: 15px;
+    grid-template-columns: 100%;
+    box-shadow: 0 0 12px gray;
+    padding: 20px; 
+/*    border-radius: 20px;*/
+}
+.subcontainer {
+    display:grid;
+    row-gap: 20px;
+}
+.selectors {
+    border-top-style: solid;
+    border-top-color: red;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px 50px;
+    row-gap: 5px;
+    grid-template-areas:
+    "header header header"
+    "up number down"
+}
+
+
+button {
+    font-family: Geo, sans-serif;
+    color: red;
+    background-color: rgb(37, 37, 37);
+    border-color: rgb(49, 48, 48);
+    border-style: solid;
+    border-radius: 10px;
+    font-size: large;
+    margin: 5px;
+}
+
+button:hover {
+    box-shadow: 0 0 8px red;
+    background-color: red;
+    color: black;
+}
+span {
+
+    text-align: center;
+    align-self: center;
+    color: red;
+    font-size: large;
+}
+
+.item-a {
+    grid-area: header;
+}
+
+.item-b{
+    grid-area: up;
+}
+
+.item-c{
+    grid-area: number;
+    font-family: 'Geo', sans-serif;
+    font-size: 50px;
+}
+
+.item-d{
+    grid-area: down;
+}
+
+#screen {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px auto 50px;
+    grid-template-areas:
+    "startBtn reset"
+    "session session"
+    "pause stop"
+}
+#session-screen {
+    grid-area: session;
+    text-align: center;
+    background-color: rgb(88, 88, 88);
+}
+#start {
+    grid-area: startBtn;
+}
+#reset {
+    grid-area: reset;
+}
+#stop {
+    grid-area: stop;
+}
+#pause {
+    grid-area: pause;
+}
+
+#session-type {
+    font-size: 40px;
+    padding: 30px;
+}
+
+#remaining-time {
+    font-size: 50px;
+}
+
+p {
+    text-align: center;
 }

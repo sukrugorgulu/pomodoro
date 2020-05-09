@@ -63,7 +63,7 @@ function playaudio(){
 }
 
 function startTimer() {
-timerRunning = setInterval(updateTimer,10)
+timerRunning = setInterval(updateTimer,1000)
 }
 
 function stopTimer() {

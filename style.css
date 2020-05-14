@@ -1,4 +1,3 @@
-/* TODO: style will be implemented soon. */
 :root{
     font-family: Geo, sans-serif;
 } 
@@ -11,7 +10,7 @@ body {
 }
 
 #container {
-    width: 400px;
+    width: 300px;
     margin: 0 auto;
     background-color:rgba(49, 48, 48,0.4);
     display: grid;
@@ -38,29 +37,39 @@ body {
     "up number down"
 }
 
-
 button {
+    color: gray;
+    background-color: rgb(37, 37, 37);
+    font-family: Geo, sans-serif;
+    border-color: rgb(49, 48, 48);
+    border-style: solid;
+    border-radius: 10px;
+    font-size: xx-large;
+    margin: 5px;
+}
+
+button.active {
     font-family: Geo, sans-serif;
     color: red;
     background-color: rgb(37, 37, 37);
     border-color: rgb(49, 48, 48);
     border-style: solid;
     border-radius: 10px;
-    font-size: large;
+    font-size: xx-large;
     margin: 5px;
 }
 
-button:hover {
+button.active:hover {
     box-shadow: 0 0 8px red;
     background-color: red;
     color: black;
 }
-span {
 
+span {
     text-align: center;
     align-self: center;
     color: red;
-    font-size: large;
+    font-size: xx-large;
 }
 
 .item-a {

@@ -104,6 +104,8 @@ span {
     grid-area: session;
     text-align: center;
     background-color: rgb(88, 88, 88);
+    font-size: xx-large;
+    font-family: Geo, sans-serif;
 }
 #start {
     grid-area: startBtn;

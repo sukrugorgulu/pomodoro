@@ -20,8 +20,8 @@ remaining-time
 THINGS TO ADD
 
 --- keep count of the sessions done
---- put the timer in the browser tab
----  
+
+
 */
 
 // LIST OF GLOBAL VARIABLES
@@ -33,6 +33,7 @@ let gBreakMinutes=DEFAULTBREAKMINUTES;
 let gRemainingTime = gSessionMinutes*60;
 let timerRunning;
 let session = 1; // 1 is sessiontime, 0 is breaktime
+let sessionCountNumber = 0;
 
 const theSound = document.querySelector('#thesound'); 
 
@@ -145,6 +146,7 @@ function resetTimer() { // gRemainingTime and gSessionMinutes are reset to defau
     switch2session();
     time2string();
     cleanTitle();
+    resetSessionCount();
     
 }
 
@@ -154,7 +156,7 @@ function updateTimer() {
         clearInterval(timerRunning);
         time2string();
         playaudio();
-        session == 1 ? switch2break() : switch2session();
+        session == 1 ? (switch2break(), addSessionCount()) : switch2session();
         startTimer();
     }
     time2string()
@@ -181,6 +183,16 @@ function time2string(){
     remainingTime.textContent = timer_text;
     return timer_text;
     
+}
+const sessionCount = document.querySelector('#session-count');
+function addSessionCount() {
+    sessionCountNumber++
+    sessionCount.textContent = sessionCountNumber;
+}
+
+function resetSessionCount() {
+    sessionCountNumber = 0;
+    sessionCount.textContent = sessionCountNumber;
 }
 
 const container = document.querySelector('#container');

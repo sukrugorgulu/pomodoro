@@ -9,7 +9,10 @@ h1 {
 body {
     background-image: url('prism.png');
 }
-
+p {
+    font-size: 20px;
+    color: black;
+}
 #container {
     width: 400px;
     margin: 0 auto;
@@ -107,6 +110,18 @@ span {
     background-color: rgba(88, 88, 88, 0.6);
     font-size: xx-large;
     font-family: Geo, sans-serif;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+    "timer count"
+}
+
+#session-count-area {
+    grid-area: count;
+    margin: auto;
+}
+#timer-area {
+    grid-area: timer;
 }
 #start {
     grid-area: startBtn;

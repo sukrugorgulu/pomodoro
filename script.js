@@ -16,6 +16,12 @@ session-minutes
 break-minutes
 session-type
 remaining-time
+
+THINGS TO ADD
+
+--- keep count of the sessions done
+--- put the timer in the browser tab
+---  
 */
 
 // LIST OF GLOBAL VARIABLES
@@ -94,6 +100,7 @@ function switch2session()
     gRemainingTime = gSessionMinutes * 60;
     sessiontype.textContent = "Session";
     time2string();
+    cleanTitle();
 }
 
 function switch2break()
@@ -102,6 +109,7 @@ function switch2break()
     gRemainingTime = gBreakMinutes * 60;
     sessiontype.textContent = "Break";
     time2string();
+    cleanTitle();
 }
 function sessionText(theBool){
     return theBool? "Session":"Break";
@@ -120,6 +128,8 @@ function stopTimer() {
     clearInterval(timerRunning);
     session ? gRemainingTime = gSessionMinutes*60: gRemainingTime = gBreakMinutes*60;
     time2string();
+    cleanTitle();
+    
 }
 
 function pauseTimer() {
@@ -134,6 +144,8 @@ function resetTimer() { // gRemainingTime and gSessionMinutes are reset to defau
     breakMinutes.textContent = DEFAULTBREAKMINUTES;
     switch2session();
     time2string();
+    cleanTitle();
+    
 }
 
 function updateTimer() {
@@ -146,8 +158,16 @@ function updateTimer() {
         startTimer();
     }
     time2string()
+    time2title()
+
 }
 
+function time2title() {
+    document.querySelector('title').textContent = "Pomodoro Timer " + time2string();
+}
+function cleanTitle() {
+    document.querySelector('title').textContent = "Pomodoro Timer"
+}
 function time2string(){
     // on display: digit4 digit3 : digit2 digit1
     let minutes = Math.floor(gRemainingTime / 60); 
@@ -157,7 +177,10 @@ function time2string(){
     digit2 = Math.floor(seconds / 10);
     digit3 = minutes % 10;
     digit4 = Math.floor(minutes / 10);
-    remainingTime.textContent = digit4 + "" + digit3 + ":" + digit2 + "" + digit1;
+    timer_text = digit4 + "" + digit3 + ":" + digit2 + "" + digit1;
+    remainingTime.textContent = timer_text;
+    return timer_text;
+    
 }
 
 const container = document.querySelector('#container');
